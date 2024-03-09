@@ -1,0 +1,195 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Project Reality",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#declare"
+		},
+		{
+			"include": "#control"
+		},
+		{
+			"include": "#statements"
+		},
+		{
+			"include": "#variable"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "^(?:rem ).*$"
+				},
+				{
+					"name": "comment.block",
+					"begin": "\\b(?:beginrem)\\b",
+					"end": "\\b(?:endrem)\\b"
+				}
+			]
+		},
+		"arguments": {
+			"patterns": [
+				{
+					"name": "string.quoted",
+					"match": "\".*\""
+				},
+				{
+					"name": "constant.numeric",
+					"match": "\\b\\d+\\b"
+				},
+				{
+					"name": "variable.name",
+					"match": "\\b\\w+\\b"
+				}
+			]
+		},
+		"control": {
+			"comment": "Control flow",
+			"begin": "\\b(if|while|for|return) (.*) (.*) (.*)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control"
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#arguments"
+						}
+					]
+				},
+				"3": {
+					"name": "keyword.operator"
+				},
+				"4": {
+					"patterns": [
+						{
+							"include": "#arguments"
+						}
+					]
+				}
+			},
+			"patterns": [
+				{
+					"include": "#declare"
+				},
+				{
+					"include": "#statements"
+				},
+				{
+					"include": "#variable"
+				},
+				{
+					"name": "keyword.control",
+					"match": "\\b(elseIf) (.*) (.*) (.*)",
+					"captures": {
+						"1": {
+							"name": "keyword.control"
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "#arguments"
+								}
+							]
+						},
+						"3": {
+							"name": "keyword.operator"
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "#arguments"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "keyword.control",
+					"match": "\\b(else|return)\\b"
+				}
+			],
+			"end": "(endIf)\\s*$",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control"
+				}
+			}
+		},
+		"declare": {
+			"comment": "Declarations, such as file runs and includes",
+			"match": "^\\s*\\b(run) ([\\w+\\/\\.]+)",
+			"captures": {
+				"1": {
+					"name": "support.function"
+				},
+				"2": {
+					"name": "string.unquoted"
+				}
+			}
+		},
+		"variable": {
+			"comment": "Declaring custom variables",
+			"patterns": [
+				{
+					"comment": "Declaration without initialization",
+					"match": "^\\s*\\b(var) (\\w+)\\s*$",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						},
+						"2": {
+							"name": "support.variable"
+						}
+					}
+				},
+				{
+					"comment": "Declaration with initialization",
+					"match": "^\\s*\\b(var) (\\w+) (.*) (.*)\\s*$",
+					"captures": {
+						"1": {
+							"name": "support.type"
+						},
+						"2": {
+							"name": "support.variable"
+						},
+						"3": {
+							"name": "keyword.operator"
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "#arguments"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"statements": {
+			"comment": "Configuration options, such as ObjectTemplate",
+			"begin": "\\b([^\\.]+)\\.(\\S+)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "support.variable"
+				},
+				"2": {
+					"name": "support.function"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#arguments"
+				}
+			],
+			"end": "\\s*$"
+		}
+	},
+	"scopeName": "source.pr"
+}

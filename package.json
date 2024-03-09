@@ -1,0 +1,24 @@
+{
+  "name": "reality-lang",
+  "displayName": "Project Reality",
+  "description": "Syntax highlighting for Project Reality: Battlefield 2",
+  "version": "1.7.5",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pr",
+      "extensions": [".tweak",".con",".ai",".inc"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pr",
+      "scopeName": "source.pr",
+      "path": "./syntaxes/pr.tmLanguage.json"
+    }]
+  }
+}
