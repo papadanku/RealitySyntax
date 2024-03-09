@@ -123,13 +123,13 @@
 		},
 		"declare": {
 			"comment": "Declarations, such as file runs and includes",
-			"match": "^\\s*\\b(run) ([\\w+\\/\\.]+)",
+			"match": "^\\s*\\b(run|include) ([\\w+\\/\\.]+)",
 			"captures": {
 				"1": {
 					"name": "support.function"
 				},
 				"2": {
-					"name": "string.unquoted"
+					"name": "string"
 				}
 			}
 		},
