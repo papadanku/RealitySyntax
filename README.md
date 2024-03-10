@@ -1,4 +1,4 @@
-# RealitySyntax
+# About
 
 This is an extension that provides syntax highlighting support for Project Reality's game files.
 

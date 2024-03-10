@@ -3,6 +3,11 @@
     "displayName": "Project Reality: Syntax Highlighting",
     "description": "Syntax highlighting support for Project Reality: Battlefield 2",
     "publisher": "The Project Reality Team",
+    "license": "BSD-3-Clause",
+    "repository": {
+        "type": "github",
+        "url": "https://github.com/papadanku/RealitySyntax"
+    },
     "icon": "./icon.png",
     "author": {
         "name": "[R-DEV]papadanku "
