@@ -19,39 +19,6 @@
 		}
 	],
 	"repository": {
-		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line",
-					"match": "^(?:rem ).*$"
-				},
-				{
-					"name": "comment.block",
-					"begin": "\\b(?:beginrem)\\b",
-					"end": "\\b(?:endrem)\\b"
-				}
-			]
-		},
-		"arguments": {
-			"patterns": [
-				{
-					"name": "constant.numeric",
-					"match": "\\b\\d+[\\.\\d\/]*[^\\.\\d\/]"
-				},
-				{
-					"name": "string",
-					"match":"\\b[\\w\/]+\\.\\w+\\b"
-				},
-				{
-					"name": "string",
-					"match": "\".*\""
-				},
-				{
-					"name": "variable.name",
-					"match": "\\b\\w+\\b"
-				}
-			]
-		},
 		"control": {
 			"comment": "Control flow",
 			"begin": "\\b(if|while|for|return) (.*) (.*) (.*)",
@@ -82,10 +49,10 @@
 					"include": "#declare"
 				},
 				{
-					"include": "#statements"
+					"include": "#variable"
 				},
 				{
-					"include": "#variable"
+					"include": "#statements"
 				},
 				{
 					"name": "keyword.control",
@@ -125,24 +92,12 @@
 				}
 			}
 		},
-		"declare": {
-			"comment": "Declarations, such as file runs and includes",
-			"match": "^\\s*\\b(run|include) ([\\w+\\/\\.]+)",
-			"captures": {
-				"1": {
-					"name": "support.function"
-				},
-				"2": {
-					"name": "string"
-				}
-			}
-		},
 		"variable": {
 			"comment": "Declaring custom variables",
 			"patterns": [
 				{
 					"comment": "Declaration without initialization",
-					"match": "^\\s*\\b(var) (\\w+)\\s*$",
+					"match": "^\\s*(var) (\\w+)\\s*$",
 					"captures": {
 						"1": {
 							"name": "support.type"
@@ -193,6 +148,51 @@
 				}
 			],
 			"end": "\\s*$"
+		},
+		"arguments": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b\\d+[\\.\\d\/eE\\-+]*[^\\.\\d\/]"
+				},
+				{
+					"name": "string",
+					"match": "\\b[\\w\/]+\\.\\w+\\b"
+				},
+				{
+					"name": "string",
+					"match": "\".*\""
+				},
+				{
+					"name": "variable.name",
+					"match": "\\b\\w+\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "^(?:rem ).*$"
+				},
+				{
+					"name": "comment.block",
+					"begin": "\\b(?:beginrem)\\b",
+					"end": "\\b(?:endrem)\\b"
+				}
+			]
+		},
+		"declare": {
+			"comment": "Declarations, such as file runs and includes",
+			"match": "^\\s*\\b(run|include) ([\\w+\\/\\.]+)",
+			"captures": {
+				"1": {
+					"name": "support.function"
+				},
+				"2": {
+					"name": "string"
+				}
+			}
 		}
 	},
 	"scopeName": "source.pr"
