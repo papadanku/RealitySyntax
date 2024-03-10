@@ -2,7 +2,7 @@
 
 This is an extension that provides syntax highlighting support for Project Reality's game files.
 
-## For more information
+## References
 
 * [Visual Studio Code's Syntax Highlighting Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
 * [Developing a New Grammar Extension for Visual Studio Code](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#developing-a-new-grammar-extension)

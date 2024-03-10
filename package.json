@@ -1,7 +1,9 @@
 {
-  "name": "reality-language",
-  "displayName": "Project Reality",
-  "description": "Syntax highlighting for Project Reality: Battlefield 2",
+  "name": "project-reality",
+  "displayName": "Project Reality: Syntax Highlighting",
+  "description": "Syntax highlighting support for Project Reality: Battlefield 2",
+  "publisher": "The Project Reality Team",
+  "icon": "./icon.png",
   "version": "1.7.5",
   "engines": {
     "vscode": "^1.87.0"
