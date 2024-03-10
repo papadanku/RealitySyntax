@@ -29,10 +29,7 @@
                 "2": {
                     "patterns": [
                         {
-                            "include": "#objects"
-                        },
-                        {
-                            "include": "#arguments"
+                            "include": "#nonPathArguments"
                         }
                     ]
                 },
@@ -42,10 +39,7 @@
                 "4": {
                     "patterns": [
                         {
-                            "include": "#objects"
-                        },
-                        {
-                            "include": "#arguments"
+                            "include": "#nonPathArguments"
                         }
                     ]
                 }
@@ -76,7 +70,7 @@
                         "2": {
                             "patterns": [
                                 {
-                                    "include": "#arguments"
+                                    "include": "#nonPathArguments"
                                 }
                             ]
                         },
@@ -86,7 +80,7 @@
                         "4": {
                             "patterns": [
                                 {
-                                    "include": "#arguments"
+                                    "include": "#nonPathArguments"
                                 }
                             ]
                         }
@@ -135,7 +129,7 @@
                         "4": {
                             "patterns": [
                                 {
-                                    "include": "#arguments"
+                                    "include": "#nonPathArguments"
                                 }
                             ]
                         }
@@ -162,7 +156,7 @@
                     "include": "#filepaths"
                 },
                 {
-                    "include": "#objects"
+                    "include": "#objectArguments"
                 }
             ],
             "end": "\\s*$"
@@ -180,13 +174,20 @@
             },
             "patterns": [
                 {
-                    "include": "#objects"
-                },
-                {
-                    "include": "#arguments"
+                    "include": "#nonPathArguments"
                 }
             ],
             "end": "\\s*$"
+        },
+        "nonPathArguments":{
+            "patterns": [
+                {
+                    "include": "#arguments"
+                },
+                {
+                    "include": "#objectArguments"
+                }
+            ]
         },
         "arguments": {
             "patterns": [
@@ -221,7 +222,7 @@
                 }
             ]
         },
-        "objects": {
+        "objectArguments": {
             "patterns": [
                 {
                     "name": "variable.name",
