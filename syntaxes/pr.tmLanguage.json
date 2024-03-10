@@ -29,6 +29,9 @@
                 "2": {
                     "patterns": [
                         {
+                            "include": "#objects"
+                        },
+                        {
                             "include": "#arguments"
                         }
                     ]
@@ -38,6 +41,9 @@
                 },
                 "4": {
                     "patterns": [
+                        {
+                            "include": "#objects"
+                        },
                         {
                             "include": "#arguments"
                         }
@@ -154,6 +160,30 @@
                 },
                 {
                     "include": "#filepaths"
+                },
+                {
+                    "include": "#objects"
+                }
+            ],
+            "end": "\\s*$"
+        },
+        "declarations": {
+            "comment": "Declarations, such as file runs and includes",
+            "begin": "^\\s*\\b(run|include) (\\S+)",
+            "beginCaptures": {
+                "1": {
+                    "name": "support.function"
+                },
+                "2": {
+                    "name": "string"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#objects"
+                },
+                {
+                    "include": "#arguments"
                 }
             ],
             "end": "\\s*$"
@@ -162,15 +192,11 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "[\\.\\-\\+\\deE]*\\d+[\\.\\d\/]*"
+                    "match": "(?:(?:[\\d+eE\\-\\+]+)?\\d[\\.\/\\\\]*)+"
                 },
                 {
                     "name": "string",
                     "match": "\".*\""
-                },
-                {
-                    "name": "variable.name",
-                    "match": "\\b\\w+\\b"
                 }
             ]
         },
@@ -187,29 +213,19 @@
                 }
             ]
         },
-        "declarations": {
-            "comment": "Declarations, such as file runs and includes",
-            "begin": "^\\s*\\b(run|include) (\\S+)",
-            "beginCaptures": {
-                "1": {
-                    "name": "support.function"
-                },
-                "2": {
-                    "name": "string"
-                }
-            },
-            "patterns": [
-                {
-                    "include": "#arguments"
-                }
-            ],
-            "end": "\\s*$"
-        },
         "filepaths": {
             "patterns": [
                 {
                     "name": "string",
-                    "match": "[\\w\/\\\\]+\\.\\w+"
+                    "match": "(?:\\w+[\/\\\\]+)+(?:[\\.\\w]+)?"
+                }
+            ]
+        },
+        "objects": {
+            "patterns": [
+                {
+                    "name": "variable.name",
+                    "match": "\\b\\w+\\b"
                 }
             ]
         }
