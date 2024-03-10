@@ -6,63 +6,24 @@
             "include": "#comments"
         },
         {
-            "include": "#declarations"
+            "include": "#branches"
         },
         {
             "include": "#variables"
         },
         {
-            "include": "#statements"
+            "include": "#imports"
         },
         {
-            "include": "#branches"
+            "include": "#statements"
         }
     ],
     "repository": {
         "branches": {
             "comment": "Control flow",
-            "begin": "\\b(if|while|for|return) (.*) (.*) (.*)",
-            "beginCaptures": {
-                "1": {
-                    "name": "keyword.control"
-                },
-                "2": {
-                    "patterns": [
-                        {
-                            "include": "#nonPathArguments"
-                        }
-                    ]
-                },
-                "3": {
-                    "name": "keyword.operator"
-                },
-                "4": {
-                    "patterns": [
-                        {
-                            "include": "#nonPathArguments"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
+            "patterns":[
                 {
-                    "include": "#comments"
-                },
-                {
-                    "include": "#declarations"
-                },
-                {
-                    "include": "#variables"
-                },
-                {
-                    "include": "#branches"
-                },
-                {
-                    "include": "#statements"
-                },
-                {
-                    "name": "keyword.control",
-                    "match": "\\b(elseIf) (.*) (.*) (.*)",
+                    "match": "^\\s*\\b(if|elseIf) (\\S*) (\\S*) (\\S*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "keyword.control"
@@ -88,15 +49,9 @@
                 },
                 {
                     "name": "keyword.control",
-                    "match": "\\b(else|return)\\b"
+                    "match": "(return|else|endIf)"
                 }
-            ],
-            "end": "(endIf)\\s*$",
-            "endCaptures": {
-                "1": {
-                    "name": "keyword.control"
-                }
-            }
+            ]
         },
         "variables": {
             "comment": "Declaring custom variables",
@@ -161,7 +116,7 @@
             ],
             "end": "\\s*$"
         },
-        "declarations": {
+        "imports": {
             "comment": "Declarations, such as file runs and includes",
             "begin": "^\\s*\\b(run|include) (\\S+)",
             "beginCaptures": {
