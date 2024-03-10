@@ -151,6 +151,9 @@
             "patterns": [
                 {
                     "include": "#arguments"
+                },
+                {
+                    "include": "#filepaths"
                 }
             ],
             "end": "\\s*$"
@@ -163,15 +166,11 @@
                 },
                 {
                     "name": "string",
-                    "match": "\\b[\\w\/]+\\.\\w+\\b"
-                },
-                {
-                    "name": "string",
                     "match": "\".*\""
                 },
                 {
                     "name": "variable.name",
-                    "match": "\\b\\w+\\b"
+                    "match": "\\b\\w+\\b[^\/\\\\]"
                 }
             ]
         },
@@ -201,10 +200,21 @@
             },
             "patterns": [
                 {
+                    "include": "#filepaths"
+                },
+                {
                     "include": "#arguments"
                 }
             ],
             "end": "\\s*$"
+        },
+        "filepaths":{
+            "patterns": [
+                {
+                    "name": "string",
+                    "match": "[\\w\/\\\\]+(?:\\.\\w+)?"
+                }
+            ]
         }
     },
     "scopeName": "source.pr"
