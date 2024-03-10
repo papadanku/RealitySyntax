@@ -9,13 +9,13 @@
             "include": "#declarations"
         },
         {
-            "include": "#branches"
+            "include": "#variables"
         },
         {
             "include": "#statements"
         },
         {
-            "include": "#variables"
+            "include": "#branches"
         }
     ],
     "repository": {
@@ -52,13 +52,13 @@
                     "include": "#declarations"
                 },
                 {
+                    "include": "#variables"
+                },
+                {
                     "include": "#branches"
                 },
                 {
                     "include": "#statements"
-                },
-                {
-                    "include": "#variables"
                 },
                 {
                     "name": "keyword.control",
@@ -159,7 +159,7 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "\\b\\d+[\\.\\d\/eE\\-+]*[^\\.\\d\/]"
+                    "match": "[\\.\\-\\+\\deE]*\\d+[\\.\\d\/]*"
                 },
                 {
                     "name": "string",
@@ -190,15 +190,21 @@
         },
         "declarations": {
             "comment": "Declarations, such as file runs and includes",
-            "match": "^\\s*\\b(run|include) ([\\w+\\/\\.]+)",
-            "captures": {
+            "begin": "^\\s*\\b(run|include) ([\\w+\\/\\.]+)",
+            "beginCaptures": {
                 "1": {
                     "name": "support.function"
                 },
                 "2": {
                     "name": "string"
                 }
-            }
+            },
+            "patterns": [
+                {
+                    "include": "#arguments"
+                }
+            ],
+            "end": "\\s*$"
         }
     },
     "scopeName": "source.pr"

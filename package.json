@@ -13,7 +13,7 @@
     "languages": [{
       "id": "pr",
       "aliases": ["Project Reality", "pr"],
-      "extensions": [".tweak",".con",".ai",".inc"],
+      "extensions": [".tweak",".con",".ai",".inc", ".buildtemplate"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
