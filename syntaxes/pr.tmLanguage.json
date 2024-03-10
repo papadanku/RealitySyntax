@@ -6,16 +6,16 @@
             "include": "#comments"
         },
         {
-            "include": "#branches"
-        },
-        {
-            "include": "#variables"
-        },
-        {
             "include": "#imports"
         },
         {
+            "include": "#branches"
+        },
+        {
             "include": "#statements"
+        },
+        {
+            "include": "#variables"
         }
     ],
     "repository": {
@@ -70,7 +70,7 @@
                 },
                 {
                     "comment": "Declaration with initialization",
-                    "match": "^\\s*\\b(var) (\\w+) (.*) (.*)\\s*$",
+                    "match": "^\\s*(var) (\\w+) (.*) (.*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "support.type"
@@ -148,7 +148,7 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "(?:(?:[\\d+eE\\-\\+]+)?\\d[\\.\/\\\\]*)+"
+                    "match": "(?<=\\s)(?:(?:\\d+[\\-\\+\\.\/\\\\eEpP]*)+)(?=\\s)"
                 },
                 {
                     "name": "string",
