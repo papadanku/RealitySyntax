@@ -1,6 +1,6 @@
 {
-  "name": "reality-lang",
-  "displayName": "RealitySyntax",
+  "name": "reality-language",
+  "displayName": "Project Reality",
   "description": "Syntax highlighing for Project Reality: Battlefield 2",
   "version": "1.7.5",
   "engines": {

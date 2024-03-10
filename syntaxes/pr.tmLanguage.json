@@ -35,12 +35,16 @@
 		"arguments": {
 			"patterns": [
 				{
-					"name": "string.quoted",
-					"match": "\".*\""
+					"name": "constant.numeric",
+					"match": "\\b\\d+[\\.\\d\/]*[^\\.\\d\/]"
 				},
 				{
-					"name": "constant.numeric",
-					"match": "\\b\\d+\\b"
+					"name": "string",
+					"match":"\\b[\\w\/]+\\.\\w+\\b"
+				},
+				{
+					"name": "string",
+					"match": "\".*\""
 				},
 				{
 					"name": "variable.name",
