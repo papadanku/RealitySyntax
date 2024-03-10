@@ -151,7 +151,7 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "(?:(?:\\d+[\\-\\+\\.\/\\\\eEpP]*)+)"
+                    "match": "(?:[eEpP\\+\\-\\.]*\\d+[eEpP\\+\\-\\.]*)+"
                 },
                 {
                     "name": "string",
