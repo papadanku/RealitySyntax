@@ -46,13 +46,19 @@
             },
             "patterns": [
                 {
+                    "include": "#comments"
+                },
+                {
                     "include": "#declare"
                 },
                 {
-                    "include": "#variable"
+                    "include": "#control"
                 },
                 {
                     "include": "#statements"
+                },
+                {
+                    "include": "#variable"
                 },
                 {
                     "name": "keyword.control",
