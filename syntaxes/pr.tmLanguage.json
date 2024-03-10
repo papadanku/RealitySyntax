@@ -170,7 +170,7 @@
                 },
                 {
                     "name": "variable.name",
-                    "match": "\\b\\w+\\b[^\/\\\\]"
+                    "match": "\\b\\w+\\b"
                 }
             ]
         },
@@ -189,7 +189,7 @@
         },
         "declarations": {
             "comment": "Declarations, such as file runs and includes",
-            "begin": "^\\s*\\b(run|include) ([\\w+\\/\\.]+)",
+            "begin": "^\\s*\\b(run|include) (\\S+)",
             "beginCaptures": {
                 "1": {
                     "name": "support.function"
@@ -200,19 +200,16 @@
             },
             "patterns": [
                 {
-                    "include": "#filepaths"
-                },
-                {
                     "include": "#arguments"
                 }
             ],
             "end": "\\s*$"
         },
-        "filepaths":{
+        "filepaths": {
             "patterns": [
                 {
                     "name": "string",
-                    "match": "[\\w\/\\\\]+(?:\\.\\w+)?"
+                    "match": "[\\w\/\\\\]+\\.\\w+"
                 }
             ]
         }
