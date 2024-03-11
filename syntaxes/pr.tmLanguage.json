@@ -23,7 +23,7 @@
             "comment": "Control flow",
             "patterns":[
                 {
-                    "match": "^\\s*\\b(if|elseIf) (.*) (.*) (.*)\\s*$",
+                    "match": "^\\s*\\b(if|elseIf) (\\w+) (\\W+) ([^\\b]*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "keyword.control"
@@ -70,7 +70,7 @@
                 },
                 {
                     "comment": "Declaration with initialization",
-                    "match": "^\\s*(var) (\\w+) (.*) (.*)\\s*$",
+                    "match": "^\\s*(var) (\\w+) (\\W*) ([^\\b]*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "support.type"
@@ -104,9 +104,6 @@
                 }
             },
             "patterns": [
-                {
-
-                },
                 {
                     "include": "#arguments"
                 },
@@ -151,7 +148,7 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "(?:[eEpP\\+\\-\\.]*\\d+[eEpP\\+\\-\\.]*)+"
+                    "match": "\\b(?:[eEpP\\+\\-\\.]*\\d+[eEpP\\+\\-\\.]*)+\\b"
                 },
                 {
                     "name": "string",
@@ -177,6 +174,10 @@
                 {
                     "name": "string",
                     "match": "(?:\\w+[\/\\\\]+)+(?:[\\.\\w]+)?"
+                },
+                {
+                    "name": "string",
+                    "match": "\\b(?:\\w+[\\.]+\\w+)\\b"
                 }
             ]
         },
