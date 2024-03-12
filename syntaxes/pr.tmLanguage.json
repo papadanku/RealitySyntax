@@ -21,9 +21,9 @@
     "repository": {
         "branches": {
             "comment": "Control flow",
-            "patterns":[
+            "patterns": [
                 {
-                    "match": "^\\s*\\b(if|elseIf) (\\w+) (\\W+) ([^\\b]*)\\s*$",
+                    "match": "^\\s*\\b(if|elseIf) (\\w+) ([\\+\\-\\*\/=%!&\\|\\^<>]+) ([^\\b]*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "keyword.control"
@@ -57,20 +57,8 @@
             "comment": "Declaring custom variables",
             "patterns": [
                 {
-                    "comment": "Declaration without initialization",
-                    "match": "^\\s*(var) (\\w+)\\s*$",
-                    "captures": {
-                        "1": {
-                            "name": "support.type"
-                        },
-                        "2": {
-                            "name": "support.variable"
-                        }
-                    }
-                },
-                {
-                    "comment": "Declaration with initialization",
-                    "match": "^\\s*(var) (\\w+) (\\W*) ([^\\b]*)\\s*$",
+                    "comment": "With initialization",
+                    "match": "^\\s*(var) (\\w+) ([\\+\\-\\*\/=%!&\\|\\^<>]+) (.+)\\s*$",
                     "captures": {
                         "1": {
                             "name": "support.type"
@@ -89,12 +77,43 @@
                             ]
                         }
                     }
+                },
+                {
+                    "comment": "Without initialization",
+                    "match": "^\\s*(var) (\\w+)\\s*$",
+                    "captures": {
+                        "1": {
+                            "name": "support.type"
+                        },
+                        "2": {
+                            "name": "support.variable"
+                        }
+                    }
+                },
+                {
+                    "comment": "Assigning variables",
+                    "match": "^\\s*(\\w*) ([\\+\\-\\*\/=%!&\\|\\^<>]+) (.*)\\s*$",
+                    "captures": {
+                        "1": {
+                            "name": "support.variable"
+                        },
+                        "2": {
+                            "name": "keyword.operator"
+                        },
+                        "3": {
+                            "patterns": [
+                                {
+                                    "include": "#nonPathArguments"
+                                }
+                            ]
+                        }
+                    }
                 }
             ]
         },
         "statements": {
             "comment": "Configuration options, such as ObjectTemplate",
-            "begin": "\\b([^\\.]+)\\.(\\S+)\\b",
+            "begin": "^\\s*\\b(\\w+)\\.(\\S+)\\b",
             "beginCaptures": {
                 "1": {
                     "name": "support.variable"
@@ -134,7 +153,7 @@
             ],
             "end": "\\s*$"
         },
-        "nonPathArguments":{
+        "nonPathArguments": {
             "patterns": [
                 {
                     "include": "#arguments"
@@ -148,7 +167,7 @@
             "patterns": [
                 {
                     "name": "constant.numeric",
-                    "match": "\\b(?:[eEpP\\+\\-\\.]*\\d+[eEpP\\+\\-\\.]*)+\\b"
+                    "match": "\\b(?:[eEpP\\-\\.]*\\d+(?:\\.\\d+)?)+\\b"
                 },
                 {
                     "name": "string",
@@ -184,7 +203,7 @@
         "objectArguments": {
             "patterns": [
                 {
-                    "name": "variable.name",
+                    "name": "support.variable",
                     "match": "\\b\\w+\\b"
                 }
             ]
