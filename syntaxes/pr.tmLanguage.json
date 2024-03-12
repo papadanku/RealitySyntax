@@ -166,12 +166,12 @@
         "arguments": {
             "patterns": [
                 {
-                    "name": "constant.numeric",
-                    "match": "\\b(?:[eEpP\\-\\.]*\\d+(?:\\.\\d+)?)+\\b"
+                    "name": "string",
+                    "match": "\"[^\"]*?\""
                 },
                 {
-                    "name": "string",
-                    "match": "\".*\""
+                    "name": "constant.numeric",
+                    "match": "\\b(?:[eEpP\\-\\.]*\\d+(?:\\.\\d+)?)+\\b"
                 }
             ]
         },
