@@ -179,7 +179,7 @@
             "patterns": [
                 {
                     "name": "comment.line",
-                    "match": "^(?:rem ).*$"
+                    "match": "^\\s*(?:rem ).*$"
                 },
                 {
                     "name": "comment.block",
