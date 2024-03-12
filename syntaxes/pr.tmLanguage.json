@@ -175,7 +175,7 @@
                     "match": "\\bCRD_(EXPONENTIAL|NONE|NORMAL|UNIFORM)\\b"
                 },
                 {
-                    "comment": "Matching numbers, the '(?<!\\w\\-)(?<!\\w)' ensures that we are not in a hyphenated name",
+                    "comment": "Matching numbers, the '(?<!\\w\\-|\\w)' ensures that we are not in a hyphenated name",
                     "name": "constant.numeric",
                     "match": "(?<!\\w\\-|\\w)(?:[eEpP\\d\\-\\+]*\\d+(?:\\.\\d*)?)+\b"
                 }
