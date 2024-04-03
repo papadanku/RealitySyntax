@@ -177,7 +177,7 @@
                 {
                     "comment": "Matching numbers, the '(?<!\\w\\-|\\w)' ensures that we are not in a hyphenated name",
                     "name": "constant.numeric",
-                    "match": "(?<!\\w\\-|\\w)[-]?(?:\\d+(?:\\.\\d+)?)(?:[eEpP][+-]\\d)?\\b"
+                    "match": "(?<!\\w\\-|\\w)[-]?(?:\\d+(?:\\.\\d*)?)(?:[eEpP][+-]\\d)?\\b"
                 }
             ]
         },
