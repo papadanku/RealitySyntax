@@ -23,7 +23,7 @@
             "comment": "Control flow",
             "patterns": [
                 {
-                    "match": "^\\s*\\b(if|elseIf) (\\w+) ([\\+\\-\\*\/=%!&\\|\\^<>]+) ([^\\b]*)\\s*$",
+                    "match": "^\\s*\\b(if|elseIf) (\\w+) (\\W+) ([^\\b]*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "keyword.control"
@@ -58,7 +58,7 @@
             "patterns": [
                 {
                     "comment": "With initialization",
-                    "match": "^\\s*(var) (\\w+) ([\\+\\-\\*\/=%!&\\|\\^<>]+) (.+)\\s*$",
+                    "match": "^\\s*(var) (\\w+) (\\W+) (.+)\\s*$",
                     "captures": {
                         "1": {
                             "name": "support.type"
@@ -92,7 +92,7 @@
                 },
                 {
                     "comment": "Assigning variables",
-                    "match": "^\\s*(\\w*) ([\\+\\-\\*\/=%!&\\|\\^<>]+) (.*)\\s*$",
+                    "match": "^\\s*(\\w*) (\\W+) (.*)\\s*$",
                     "captures": {
                         "1": {
                             "name": "support.variable"
