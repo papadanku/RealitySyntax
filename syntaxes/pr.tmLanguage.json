@@ -113,7 +113,7 @@
         },
         "statements": {
             "comment": "Configuration options, such as ObjectTemplate",
-            "begin": "^\\s*\\b(\\w+)\\.(\\S+)\\b",
+            "begin": "^\\s*(?<!\\|\/)\\b([^\\s\\\/]+\\.)(\\w+)\\b",
             "beginCaptures": {
                 "1": {
                     "name": "support.variable"
@@ -185,7 +185,8 @@
             "patterns": [
                 {
                     "name": "comment.line",
-                    "match": "^\\s*(?:rem ).*$"
+                    "begin": "^\\s*rem",
+                    "end": "\\s*$"
                 },
                 {
                     "name": "comment.block",
