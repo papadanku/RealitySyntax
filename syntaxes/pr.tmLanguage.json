@@ -113,7 +113,7 @@
         },
         "statements": {
             "comment": "Configuration options, such as ObjectTemplate",
-            "begin": "^\\s*(?<!\\|\/)\\b([^\\s\\\/]+\\.)(\\w+)\\b",
+            "begin": "^\\s*((?:\\w+\\.)+)(\\w+)\\b",
             "beginCaptures": {
                 "1": {
                     "name": "support.variable"
